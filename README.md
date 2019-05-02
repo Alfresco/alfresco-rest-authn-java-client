@@ -1,2 +1,2 @@
-# alfresco-identity-service-java-client
-Alfresco Identity Service Java Client
+# alfresco-rest-authn-java-client
+Alfresco REST Authentication Java Client
