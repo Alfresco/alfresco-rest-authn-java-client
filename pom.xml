@@ -20,6 +20,7 @@
         <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
 
         <keycloak.version>4.8.3.Final</keycloak.version>
+        <jackson.version>2.9.9</jackson.version>
         <commons-io.version>2.6</commons-io.version>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
         <junit.version>4.12</junit.version>
@@ -78,6 +79,21 @@
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-authz-client</artifactId>
             <version>${keycloak.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
