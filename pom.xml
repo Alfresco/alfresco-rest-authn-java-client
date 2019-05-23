@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.alfresco</groupId>
+    <artifactId>alfresco-rest-authn-java-client</artifactId>
+    <version>0.1-SNAPSHOT</version>
+
+    <name>alfresco-rest-authn-java-client</name>
+    <description>Alfresco REST Authentication Java Client</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.encoding>UTF-8</project.encoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+
+        <keycloak.version>4.8.3.Final</keycloak.version>
+        <jackson.version>2.9.9</jackson.version>
+        <commons-codec.version>1.12</commons-codec.version>
+        <commons-io.version>2.6</commons-io.version>
+        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
+        <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+    </properties>
+
+    <scm>
+        <connection>scm:git:https://github.com/Alfresco/alfresco-rest-authn-java-client.git</connection>
+        <developerConnection>scm:git:https://github.com/Alfresco/alfresco-rest-authn-java-client.git</developerConnection>
+        <url>https://github.com/Alfresco/alfresco-rest-authn-java-client</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>alfresco-public</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>alfresco-internal</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/internal</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alfresco-public</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>alfresco-internal</id>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>alfresco-internal-snapshots</id>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-adapter-core</artifactId>
+            <version>${keycloak.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-authz-client</artifactId>
+            <version>${keycloak.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>integration</id>
+            <activation>
+                <property>
+                    <name>it-test</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.22.1</version>
+                        <configuration>
+                            <includes>
+                                <include>AccessTokenTestIT.java</include>
+                                <include>**/*Test.java</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
