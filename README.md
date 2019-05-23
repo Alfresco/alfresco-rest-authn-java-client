@@ -49,7 +49,7 @@ The library will be loaded with a set of default [properties](src/main/resources
     TokenProvider tokenProvider = new TokenProvider(authnConfigBuilder);
 
     AccessTokenResponse tokenResponse = tokenProvider.getAccessToken();
-    tokenResponse.getToken());
+    tokenResponse.getToken();
 ```
 
 Or you can ignore setting the username and password as the above example and then provide the username/password at the invocation time:
@@ -62,7 +62,7 @@ Or you can ignore setting the username and password as the above example and the
     TokenProvider tokenProvider = new TokenProvider(authnConfigBuilder);
     
     AccessTokenResponse tokenResponse = tokenProvider.getAccessToken("username", "password");
-    tokenResponse.getToken());
+    tokenResponse.getToken();
 ```
 
 **Note**: All the available [properties](src/main/resources/authn-config.properties) can be overridden by the System/Environment properties.
@@ -87,6 +87,6 @@ you can obtain the Spring *Environment* object and then pass it to builder class
     TokenProvider tokenProvider = new TokenProvider(authnConfigBuilder);
 
     AccessTokenResponse tokenResponse = tokenProvider.getAccessToken();
-    tokenResponse.getToken());
+    tokenResponse.getToken();
 
 ``` 
