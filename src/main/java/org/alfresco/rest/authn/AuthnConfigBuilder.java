@@ -247,7 +247,8 @@ public class AuthnConfigBuilder
 
         private String convertKey(String key)
         {
-            return key.toLowerCase().replace("_", ".");
+            key = key.toLowerCase().substring(CONFIG_KEY_PREFIX.length());
+            return CONFIG_KEY_PREFIX + key.replace("_", "-");
         }
 
         public AuthnConfigBuilder build()

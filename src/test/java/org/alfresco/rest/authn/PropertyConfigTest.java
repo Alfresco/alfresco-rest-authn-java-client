@@ -138,9 +138,9 @@ public class PropertyConfigTest
     public void testOverridePropertiesWithSystemProperties()
     {
         // Set System properties to simulate the given command line properties
-        setSystemProperty("ALFRESCO_IDENTITY_SERVICE_VALIDATE-TOKEN", "false");
+        setSystemProperty("ALFRESCO_IDENTITY_SERVICE_VALIDATE_TOKEN", "false");
         setSystemProperty("ALFRESCO_IDENTITY_SERVICE_USERNAME", "testUsername");
-        setSystemProperty("alfresco.identity.service.credentials-secret", "testSecret");
+        setSystemProperty("ALFRESCO_IDENTITY_SERVICE_CREDENTIALS_SECRET", "testSecret");
         setSystemProperty("alfresco.identity.service.password", "testPassword");
 
         Properties properties = new Properties();
