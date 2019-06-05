@@ -4,7 +4,7 @@
 
     <groupId>org.alfresco</groupId>
     <artifactId>alfresco-rest-authn-java-client</artifactId>
-    <version>-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
 
     <name>alfresco-rest-authn-java-client</name>
     <description>Alfresco REST Authentication Java Client</description>
