@@ -70,7 +70,7 @@ Also, note that System/Environment properties take precedence over the *Properti
 
 ### Setting the required properties in Spring
 
-Assuming that you have overridden the required properties in you **_application.properties_** file, for example,
+Assuming that you have overridden the required properties in your **_application.properties_** file, for example,
 
 ```properties
 alfresco.identity.service.grant-type=client_credentials
