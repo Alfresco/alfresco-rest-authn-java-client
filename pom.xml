@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
 
         <keycloak.version>6.0.1</keycloak.version>
-        <jackson.version>2.9.10</jackson.version>
+        <jackson.version>2.9.10.3</jackson.version>
         <commons-codec.version>1.12</commons-codec.version>
         <commons-io.version>2.6</commons-io.version>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
