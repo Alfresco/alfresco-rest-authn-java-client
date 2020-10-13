@@ -22,7 +22,7 @@
         <commons-codec.version>1.12</commons-codec.version>
         <commons-io.version>2.6</commons-io.version>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <mockito.version>1.10.19</mockito.version>
     </properties>
 
